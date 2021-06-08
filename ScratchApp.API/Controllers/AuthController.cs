@@ -44,6 +44,9 @@ namespace ScratchApp.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
+
+            throw new Exception("force exception");
+
             var userFromrepo = await _repository.Login(userForLoginDto.Username, userForLoginDto.Password);
             if (userFromrepo == null)
                 return Unauthorized();
@@ -67,11 +70,12 @@ namespace ScratchApp.API.Controllers
             };
 
             var tokenhandler = new JwtSecurityTokenHandler();
-            var token= tokenhandler.CreateToken(tokenDecriptor);
+            var token = tokenhandler.CreateToken(tokenDecriptor);
 
-            return Ok(new{
-                token=tokenhandler.WriteToken(token)
-            }); 
+            return Ok(new
+            {
+                token = tokenhandler.WriteToken(token)
+            });
 
         }
     }

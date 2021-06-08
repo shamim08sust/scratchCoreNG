@@ -19,6 +19,7 @@ export class AuthService {
         }
       })
     );
+    
   }
 
   register(model:any){
