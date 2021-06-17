@@ -45,7 +45,7 @@ namespace ScratchApp.API.Controllers
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
 
-            throw new Exception("force exception");
+            // throw new Exception("force exception");
 
             var userFromrepo = await _repository.Login(userForLoginDto.Username, userForLoginDto.Password);
             if (userFromrepo == null)
